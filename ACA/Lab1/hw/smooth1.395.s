@@ -1,6 +1,4 @@
-; 115 Cycles, 76 Instructions, 1.513 CPI, 34 RAW Stalls, 14 Structural Stalls
-; Code size 192 Bytes
-
+; 106 Cycles, 76 Instructions, 1.395 CPI, 31 RAW Stalls, 14 Structural Stalls
 
     .data
 N_COEFFS:   .word   3          ;the number of coeffs is fixed

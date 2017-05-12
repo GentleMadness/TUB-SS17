@@ -3,6 +3,7 @@ N_COEFFS:   .word   3            ;the number of coeffs is fixed
 coeff:      .double 0.5, 1.0, 0.5
 N_SAMPLES:  .word   50
 sample:     .double 2,3,4,1,1,1,1,1,2,1,1,2,1,2.0,1.0,1.0,2.0,1.0,2.0,1.0,1.0,2.0,1.0,2.0,1.0,1.0,2.0,1.0,2.0,1.0,1.0,2.0,1.0,2.0,1.0,1.0,2.0,1.0,2.0,1.0,1.0,2.0,1.0,2.0,1.0,1.0,2.0,1.0,2.0,1.0
+
 result:     .double 0.0, 0.0, 0.0, 0.0, 0.0
 fp_one:     .double 1.0
 
@@ -33,7 +34,7 @@ main:
 	l.d    f2, coeff+8($zero)     ; f2 = coeff[1]
     c.lt.d f1, f0                 ; compare if f1<0
     bc1f   coeff1                 ; if coeff[0]>0, goto coeff1
-    nop    
+    dsub   $t7, $t8, $t1          ; t8 = n, t7 = n-1    
     sub.d  f1, f0, f1             ; if coeff[0]<0, f1 =-coeff[0]
     
 coeff1:
@@ -51,18 +52,23 @@ coeff2:
     
 coeff3:
     add.d  f4, f4, f3             ; f4= coeff[0]+coeff[1]+coeff[2]
-    div.d  f4, f5, f4             ; f4 = 1/norm
     daddi  $t1, $zero, 1          ; t1 = 1
     s.d    f6, result($zero)      ; result[0] = sample[0]
-    
-    dsub   $t9, $t8, $t1          ; t8 = n, t9 = n-1
-    daddi  $t2, $zero, 16
-    dsll   $t9, $t9, 3            ; t9 = (n-1)*8, a double is 8 bytes
-    l.d    f8, sample($t9)        ; f8 = sample[n-1]
-    daddi  $t0, $zero, 0
-    s.d    f8, result($t9)        ; result[n-1] = sample[n-1]  
+    div.d  f4, f5, f4             ; f4 = 1/norm
 
+    
+    daddi  $t2, $zero, 16
+    
+    dsll   $t7, $t7, 3            ; t7 = (n-1)*8
+    dsll   $t9, $t8, 3            ; t9 = n*8, a double is 8 bytes
+    
+    
+    l.d    f8, sample($t7)        ; f8 = sample[n-1]
+    
+    daddi  $t0, $zero, 0
     daddi  $t1, $zero, 8
+    
+    s.d    f8, result($t7)        ; result[n-1] = sample[n-1]  
                                   ; f1 = |coeff[0]|, f2 = |coeff[1]|, 
                                   ; f3 = |coeff[2]|, f4 = 1/norm
 
@@ -70,31 +76,42 @@ coeff3:
     mul.d  f2, f2, f4             ; f2 = coeff[1]/norm
     mul.d  f3, f3, f4             ; f3 = coeff[2]/norm
 
-forloop:
-    l.d   f8, sample($t2)
-    l.d   f4, sample($t0)     
-	l.d   f6, sample($t1)
+    l.d   f6, sample($t1)
+    l.d   f4, sample($t0)
+    l.d   f8, sample($t2)         ; load/store -> 2 cycles
+                                  ; sample >= 3, the first 3 samples are always loaded, so do it outside the for-loop
     
-	mul.d f16, f8, f3             ;  3rd coeff * 3rd sample
-    mul.d f10, f4, f1             ;  1st coeff * 1st sample
-	mul.d f12, f6, f2             ;  2nd coeff * 2nd sample
-	
-    daddi $t0, $t0, 8        
-	add.d f14, f10,f12
-    add.d f4,  f14,f16           ; final sum to be stored in result
-    daddi $t1, $t1, 8       
-	daddi $t2, $t2, 8     
-	
-    s.d   f4, result($t0)         ; Store result, from result[1]  	
-
-    bne   $t9, $t1, forloop       ; t1 != t9 =(n-1)*8, do the loop, till store result[n-2]
-     
-    ; load all the results to the register f18-f26 to check if they are correct.     
+forloop: 	
+	mul.d f16, f8, f3             ;  3rd coeff * 3rd sample, Multiple takes 6 cycles
+	mul.d f10, f4, f1             ;  1st coeff * 1st sample
+    mul.d f12, f6, f2             ;  2nd coeff * 2nd sample
+                                  ;  here finish calculating each element for one result (3 mul.d needed)
+    
+    daddi $t2, $t2, 8 
+   
+    add.d f14, f10, f12           ;  Probably don't move this line. if moved to anywhere below, cycles increses to 955. now it's 907
+    
+    mov.d f4, f6                  ; move f6 to f4,  prepare for the next loop 
+    mov.d f6, f8                  ; move f8 to f6
+    
+    add.d f14, f14,f16            ; final sum to be stored in result, one result finished completely
+    
+	    
+	l.d   f8, sample($t2)         ; load or store needs 2 cycles, load the next sample 
+    daddi $t0, $t0, 8  	
+    
+    
+    bne   $t9, $t2, forloop       ; t1 != t9 =(n-1)*8, do the loop, till store result[n-2]
+    s.d   f14, result($t0)        ; Store result, from result[1], THIS LINE will be executed anyway. Moving s.d down to here decreases
+                                  ; cycles from 864 to 816
+    
+    ;load all the results to the register f18-f26 to check if they are correct.     
+    
     ;l.d   f18, result($zero)    
     ;l.d   f20, result+8($zero)
     ;l.d   f22, result+16($zero)
     ;l.d   f24, result+24($zero)
-    ;l.d   f26, result+32($zero)
+    ;l.d   f26, result($t7)
     
 bail:
     nop

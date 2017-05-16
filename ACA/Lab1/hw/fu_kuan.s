@@ -1,5 +1,3 @@
-;Yuting Fu 387512, Shan Kuan 387516
-
     .data
 N_COEFFS:   .word   3                                      ;the number of coeffs is fixed
 coeff:      .double 0.5, 1.0, 0.5

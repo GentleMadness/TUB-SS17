@@ -1,10 +1,3 @@
-/*
-Group 7
-Xiaojia Qu: 376623
-Amiao Pan: 375024
-Mengci Wu:379787
-*/
-
 
 #include <immintrin.h>
 #include <malloc.h>

@@ -1,0 +1,256 @@
+AMAT (Hit Rate + Miss Rate * Miss Penalty)
+Default Memory latency <18 cycles>
+ IPC: 1.5901
+ AMAT: 6.297877
+
+========================================================
+Increase Memory latency <200 cycles>
+ IPC: 0.5435
+ AMAT: 37.401677
+
+========================================================
+L2 Latency <6 cycles>
+<L2 Cache Latency: 6, Sets in the cache: 1024, Associativity: 2>
+ IPC: 0.2026
+ AMAT: 67.008691
+
+<L2 Cache Latency: 6, Sets in the cache: 1024, Associativity: 4>
+ IPC: 0.5248
+ AMAT: 37.614711
+
+<L2 Cache Latency: 6, Sets in the cache: 1024, Associativity: 8>
+ IPC: 0.7458
+ AMAT: 25.431056
+
+<L2 Cache Latency: 6, Sets in the cache: 1024, Associativity: 16>
+ IPC: 0.9155
+ AMAT: 11.799108
+
+<L2 Cache Latency: 6, Sets in the cache: 1024, Associativity: 32>
+ IPC: 0.9776
+ AMAT: 10.797998
+
+<L2 Cache Latency: 6, Sets in the cache: 2048, Associativity: 2>
+ IPC: 0.2054
+ AMAT: 65.986332
+
+<L2 Cache Latency: 6, Sets in the cache: 2048, Associativity: 4>
+ IPC: 0.5697
+ AMAT: 36.059815
+
+<L2 Cache Latency: 6, Sets in the cache: 2048, Associativity: 8>
+ IPC: 0.7477
+ AMAT: 25.388460
+
+<L2 Cache Latency: 6, Sets in the cache: 2048, Associativity: 16>
+ IPC: 0.9779
+ AMAT: 10.798019
+
+<L2 Cache Latency: 6, Sets in the cache: 2048, Associativity: 32>
+ IPC: 0.9784
+ AMAT: 10.798043
+
+<L2 Cache Latency: 6, Sets in the cache: 4096, Associativity: 2>
+ IPC: 0.2059
+ AMAT: 65.688075
+
+<L2 Cache Latency: 6, Sets in the cache: 4096, Associativity: 4>
+ IPC: 0.5796
+ AMAT: 35.697732
+
+<L2 Cache Latency: 6, Sets in the cache: 4096, Associativity: 8>
+ IPC: 0.7893
+ AMAT: 24.387410
+
+<L2 Cache Latency: 6, Sets in the cache: 4096, Associativity: 16>
+ IPC: 0.9784
+ AMAT: 10.798043
+
+<L2 Cache Latency: 6, Sets in the cache: 4096, Associativity: 32>
+ IPC: 0.9784
+ AMAT: 10.798043
+
+<L2 Cache Latency: 6, Sets in the cache: 8192, Associativity: 2>
+ IPC: 0.2060
+ AMAT: 65.581580
+
+<L2 Cache Latency: 6, Sets in the cache: 8192, Associativity: 4>
+ IPC: 0.6098
+ AMAT: 34.504888
+
+<L2 Cache Latency: 6, Sets in the cache: 8192, Associativity: 8>
+ IPC: 0.7899
+ AMAT: 24.366053
+
+<L2 Cache Latency: 6, Sets in the cache: 8192, Associativity: 16>
+ IPC: 0.9784
+ AMAT: 10.798043
+
+<L2 Cache Latency: 6, Sets in the cache: 8192, Associativity: 32>
+ IPC: 0.9784
+ AMAT: 10.798043
+
+========================================================
+L2 Latency <7 cycles>
+<L2 Cache Latency: 7, Sets in the cache: 1024, Associativity: 2>
+ IPC: 0.2015
+ AMAT: 67.008726
+
+<L2 Cache Latency: 7, Sets in the cache: 1024, Associativity: 4>
+ IPC: 0.5134
+ AMAT: 37.593355
+
+<L2 Cache Latency: 7, Sets in the cache: 1024, Associativity: 8>
+ IPC: 0.7222
+ AMAT: 25.431086
+
+<L2 Cache Latency: 7, Sets in the cache: 1024, Associativity: 16>
+ IPC: 0.8792
+ AMAT: 11.799123
+
+<L2 Cache Latency: 7, Sets in the cache: 1024, Associativity: 32>
+ IPC: 0.9360
+ AMAT: 10.798011
+
+<L2 Cache Latency: 7, Sets in the cache: 2048, Associativity: 2>
+ IPC: 0.2042
+ AMAT: 65.964961
+
+<L2 Cache Latency: 7, Sets in the cache: 2048, Associativity: 4>
+ IPC: 0.5560
+ AMAT: 36.038457
+
+<L2 Cache Latency: 7, Sets in the cache: 2048, Associativity: 8>
+ IPC: 0.7240
+ AMAT: 25.388490
+
+<L2 Cache Latency: 7, Sets in the cache: 2048, Associativity: 16>
+ IPC: 0.9363
+ AMAT: 10.798032
+
+<L2 Cache Latency: 7, Sets in the cache: 2048, Associativity: 32>
+ IPC: 0.9367
+ AMAT: 10.776656
+
+<L2 Cache Latency: 7, Sets in the cache: 4096, Associativity: 2>
+ IPC: 0.2047
+ AMAT: 65.688103
+
+<L2 Cache Latency: 7, Sets in the cache: 4096, Associativity: 4>
+ IPC: 0.5655
+ AMAT: 35.676374
+
+<L2 Cache Latency: 7, Sets in the cache: 4096, Associativity: 8>
+ IPC: 0.7627
+ AMAT: 24.387439
+
+<L2 Cache Latency: 7, Sets in the cache: 4096, Associativity: 16>
+ IPC: 0.9367
+ AMAT: 10.776656
+
+<L2 Cache Latency: 7, Sets in the cache: 4096, Associativity: 32>
+ IPC: 0.9367
+ AMAT: 10.776656
+
+<L2 Cache Latency: 7, Sets in the cache: 8192, Associativity: 2>
+ IPC: 0.2049
+ AMAT: 65.581608
+
+<L2 Cache Latency: 7, Sets in the cache: 8192, Associativity: 4>
+ IPC: 0.5940
+ AMAT: 34.504927
+
+<L2 Cache Latency: 7, Sets in the cache: 8192, Associativity: 8>
+ IPC: 0.7632
+ AMAT: 24.366082
+
+<L2 Cache Latency: 7, Sets in the cache: 8192, Associativity: 16>
+ IPC: 0.9367
+ AMAT: 10.776656
+
+<L2 Cache Latency: 7, Sets in the cache: 8192, Associativity: 32>
+ IPC: 0.9367
+ AMAT: 10.776656
+
+========================================================
+L2 Latency <8 cycles>
+<L2 Cache Latency: 8, Sets in the cache: 1024, Associativity: 2>
+ IPC: 0.2004
+ AMAT: 67.008726
+
+<L2 Cache Latency: 8, Sets in the cache: 1024, Associativity: 4>
+ IPC: 0.5027
+ AMAT: 37.593356
+
+<L2 Cache Latency: 8, Sets in the cache: 1024, Associativity: 8>
+ IPC: 0.7000
+ AMAT: 25.431086
+
+<L2 Cache Latency: 8, Sets in the cache: 1024, Associativity: 16>
+ IPC: 0.8457
+ AMAT: 11.799123
+
+<L2 Cache Latency: 8, Sets in the cache: 1024, Associativity: 32>
+ IPC: 0.8979
+ AMAT: 10.798011
+
+<L2 Cache Latency: 8, Sets in the cache: 2048, Associativity: 2>
+ IPC: 0.2031
+ AMAT: 65.964961
+
+<L2 Cache Latency: 8, Sets in the cache: 2048, Associativity: 4>
+ IPC: 0.5433
+ AMAT: 36.038457
+
+<L2 Cache Latency: 8, Sets in the cache: 2048, Associativity: 8>
+ IPC: 0.7017
+ AMAT: 25.388490
+
+<L2 Cache Latency: 8, Sets in the cache: 2048, Associativity: 16>
+ IPC: 0.8981
+ AMAT: 10.798032
+
+<L2 Cache Latency: 8, Sets in the cache: 2048, Associativity: 32>
+ IPC: 0.8985
+ AMAT: 10.776656
+
+<L2 Cache Latency: 8, Sets in the cache: 4096, Associativity: 2>
+ IPC: 0.2036
+ AMAT: 65.688103
+
+<L2 Cache Latency: 8, Sets in the cache: 4096, Associativity: 4>
+ IPC: 0.5523
+ AMAT: 35.676374
+
+<L2 Cache Latency: 8, Sets in the cache: 4096, Associativity: 8>
+ IPC: 0.7378
+ AMAT: 24.387439
+
+<L2 Cache Latency: 8, Sets in the cache: 4096, Associativity: 16>
+ IPC: 0.8985
+ AMAT: 10.776656
+
+<L2 Cache Latency: 8, Sets in the cache: 4096, Associativity: 32>
+ IPC: 0.8985
+ AMAT: 10.776656
+
+<L2 Cache Latency: 8, Sets in the cache: 8192, Associativity: 2>
+ IPC: 0.2037
+ AMAT: 65.581608
+
+<L2 Cache Latency: 8, Sets in the cache: 8192, Associativity: 4>
+ IPC: 0.5794
+ AMAT: 34.504928
+
+<L2 Cache Latency: 8, Sets in the cache: 8192, Associativity: 8>
+ IPC: 0.7383
+ AMAT: 24.366082
+
+<L2 Cache Latency: 8, Sets in the cache: 8192, Associativity: 16>
+ IPC: 0.8985
+ AMAT: 10.776656
+
+<L2 Cache Latency: 8, Sets in the cache: 8192, Associativity: 32>
+ IPC: 0.8985
+ AMAT: 10.776656
+

@@ -1,0 +1,12 @@
+
+#!/bin/bash
+
+# This script opens 200 terminal windows.
+
+i="0"
+
+while [ $i -lt 200 ]
+do
+./smt
+i=$[$i+1]
+done

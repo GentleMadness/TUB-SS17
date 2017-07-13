@@ -1,8 +1,3 @@
-/*
-Yuting Fu 387512, Shan Kuan 387516
-*/
-
-
 #include <immintrin.h>
 #include <malloc.h>
 #include <stdio.h>
